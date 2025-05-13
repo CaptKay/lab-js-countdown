@@ -21,18 +21,21 @@ function startCountdown() {
   // Your code goes here ...
 
   timer = setInterval(() => {
-    remainingTime--;
-    timeElement.innerText = `${remainingTime}`;
+    
 
     if (remainingTime === 0) {
       clearInterval(timer);
       startCountdownBtnElement.disabled = false;
       showToast("Lift off! 🚀");
+      return;
     } else if (remainingTime === 5) {
       showToast("Start the engines! 💥");
     } else if (remainingTime === 10) {
       showToast("⏰ Final countdown! ⏰");
     }
+
+    remainingTime--;
+    timeElement.innerText = `${remainingTime}`;
   }, 1000);
   return timer;
 }
